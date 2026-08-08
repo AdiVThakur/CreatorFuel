@@ -58,22 +58,25 @@ NEXT_PUBLIC_URL=http://localhost:3000
 ---
 
 
-💻 Getting Started
+##💻 Getting Started
 Follow these steps to set up and run the project locally:
 
-```
+
 1. Clone the Repository
-Bash
+```Bash
 git clone [https://github.com/AdiVThakur/Creator-Fuel.git](https://github.com/AdiVThakur/Creator-Fuel.git)
 cd Creator-Fuel
+```
 2. Install Dependencies
-Bash
+```Bash
 npm install
+```
 3. Run the Development Server
-Bash
+```Bash
 npm run dev
 Open http://localhost:3000 in your browser to view the application.
 ```
+
 
 ---
 
