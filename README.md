@@ -81,16 +81,37 @@ Open http://localhost:3000 in your browser to view the application.
 ---
 
 ## 📁 Project Structure
-```Plaintext
+```CreatorFuel/
 ├── app/
-│   ├── [username]/     # Dynamic creator profile pages
-│   ├── api/            # API & NextAuth routes
-│   ├── components/     # Reusable UI components
-│   └── page.js         # Landing page
-├── db/                 # Database connection & Mongoose models
-├── models/             # Data schemas (User, Payment)
-├── public/             # Static assets
-└── README.md
+│   ├── [username]/
+│   │   └── page.js          # Dynamic creator profile page
+│   ├── api/
+│   │   ├── auth/
+│   │   │   └── [...nextauth]/
+│   │   │       └── route.js  # NextAuth backend API endpoints
+│   │   └── razorpay/
+│   │       └── route.js      # Razorpay order & webhook handlers
+│   ├── dashboard/
+│   │   └── page.js          # User dashboard page
+│   ├── layout.js            # Root layout component
+│   ├── page.js              # Landing page
+│   └── globals.css          # Global CSS styles
+├── components/
+│   ├── Navbar.js            # Navigation bar header
+│   ├── Footer.js            # Footer component
+│   ├── PaymentPage.js       # Payment form & Razorpay integration
+│   └── SessionWrapper.js    # NextAuth SessionProvider wrapper
+├── db/
+│   └── connectDb.js         # MongoDB connection setup (Mongoose)
+├── models/
+│   ├── User.js              # User schema & model
+│   └── Payment.js           # Payment/Donation transaction schema
+├── public/                  # Static assets (images, icons, logos)
+├── .env.local               # Environment variables (secret)
+├── jsconfig.json            # Path aliases configuration
+├── next.config.mjs          # Next.js configuration settings
+├── package.json             # Dependencies and scripts
+└── README.md                # Project documentation
 ```
 
 ---
