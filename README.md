@@ -81,7 +81,8 @@ Open http://localhost:3000 in your browser to view the application.
 ---
 
 ## 📁 Project Structure
-```CreatorFuel/
+```text
+CreatorFuel/
 ├── app/
 │   ├── [username]/
 │   │   └── page.js          # Dynamic creator profile page
