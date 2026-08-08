@@ -20,16 +20,16 @@ const Navbar = () => {
             <div className='relative flex items-center justify-center gap-2 w-full sm:w-auto'>
                 {session && (
                     <>
-                        <button 
-                            onClick={() => setShowdropdown(!showdropdown)} 
+                        <button
+                            onClick={() => setShowdropdown(!showdropdown)}
                             onBlur={() => {
                                 setTimeout(() => {
                                     setShowdropdown(false)
                                 }, 100);
-                            }} 
-                            id="dropdownDefaultButton" 
-                            data-dropdown-toggle="dropdown" 
-                            className="inline-flex items-center justify-between sm:justify-center text-white bg-blue-600 border border-transparent hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium leading-5 rounded-lg text-xs sm:text-sm px-3 sm:px-4 py-2 focus:outline-none max-w-[200px] sm:max-w-[280px] truncate" 
+                            }}
+                            id="dropdownDefaultButton"
+                            data-dropdown-toggle="dropdown"
+                            className="inline-flex items-center justify-between sm:justify-center text-white bg-blue-600 border border-transparent hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium leading-5 rounded-lg text-xs sm:text-sm px-3 sm:px-4 py-2 focus:outline-none max-w-[200px] sm:max-w-[280px] truncate"
                             type="button"
                         >
                             <span className="truncate">Welcome {session.user?.email}</span>
@@ -47,6 +47,7 @@ const Navbar = () => {
                                 <li>
                                     <Link href={`/${session.user.name}`} className="inline-flex items-center w-full p-2 hover:bg-slate-700 hover:text-white rounded">Your Page</Link>
                                 </li>
+                                
                                 <li>
                                     <button onClick={() => { signOut() }} className="inline-flex items-center w-full p-2 hover:bg-slate-700 hover:text-white rounded text-left">Sign out</button>
                                 </li>
@@ -60,7 +61,7 @@ const Navbar = () => {
                         Logout
                     </button>
                 )}
-                
+
                 {!session && (
                     <Link href={"/login"}>
                         <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-xs sm:text-sm px-4 py-2 text-center rounded-lg whitespace-nowrap">

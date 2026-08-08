@@ -58,10 +58,7 @@ export const fetchuser = async (username) => {
 
     if (!u) return null;
 
-    // 1. Serialize first to strip Mongoose internal symbols
     let plainUser = JSON.parse(JSON.stringify(u));
-
-    // 2. Safely add fallback property on plain object
     plainUser.username = plainUser.username || plainUser.Username || "";
 
     return plainUser;
@@ -78,25 +75,30 @@ export const updateProfile = async (data, oldusername) => {
 
     let ndata = data instanceof FormData ? Object.fromEntries(data) : { ...data };
     delete ndata._id;
-    
-    const targetUsername = ndata.username || ndata.Username;
 
-    if (targetUsername && targetUsername !== oldusername) {
-        let u = await User.findOne({ 
-            $or: [{ username: targetUsername }, { Username: targetUsername }] 
+    // Standardize handle values
+    const newUsername = ndata.username || ndata.Username;
+    if (newUsername) {
+        ndata.username = newUsername;
+        ndata.Username = newUsername;
+    }
+
+    // If username is changing, check for collision with another user
+    if (newUsername && oldusername && newUsername !== oldusername) {
+        let existingUser = await User.findOne({ 
+            $or: [{ username: newUsername }, { Username: newUsername }],
+            email: { $ne: ndata.email } // Ensure we aren't colliding with our own email
         }).lean();
         
-        if (u) {
+        if (existingUser) {
             return { error: "Username already exists" };
         }
-        await User.updateOne({ email: ndata.email }, ndata);
-        await Payment.updateMany({ to_user: oldusername }, { to_user: ndata.username });
-    }
-    
-    if (ndata.username) {
-        ndata.Username = ndata.username;
+
+        // Update past payments to reflect the new creator handle
+        await Payment.updateMany({ to_user: oldusername }, { to_user: newUsername });
     }
 
-    await User.updateOne({ email: ndata.email }, ndata);
+    // Single database update
+    await User.updateOne({ email: ndata.email }, { $set: ndata });
     return { success: true, message: "Profile updated successfully" };
 };
