@@ -58,7 +58,7 @@ NEXT_PUBLIC_URL=http://localhost:3000
 ---
 
 
-##💻 Getting Started
+## 💻 Getting Started
 Follow these steps to set up and run the project locally:
 
 
@@ -80,7 +80,7 @@ Open http://localhost:3000 in your browser to view the application.
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 ```
 Plaintext
 ├── app/
@@ -97,8 +97,9 @@ Plaintext
 ---
 
 
-👨‍💻 Author
-Aditya Vithalrao Thakur
+## 👨‍💻 Author
+
+# Aditya Vithalrao Thakur
 
 GitHub: @AdiVThakur
 
