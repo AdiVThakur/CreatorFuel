@@ -53,12 +53,15 @@ KEY_SECRET=your_razorpay_key_secret
 
 # Public Site URL
 NEXT_PUBLIC_URL=http://localhost:3000
+```
 
+---
 
 
 💻 Getting Started
 Follow these steps to set up and run the project locally:
 
+```
 1. Clone the Repository
 Bash
 git clone [https://github.com/AdiVThakur/Creator-Fuel.git](https://github.com/AdiVThakur/Creator-Fuel.git)
@@ -70,8 +73,12 @@ npm install
 Bash
 npm run dev
 Open http://localhost:3000 in your browser to view the application.
+```
+
+---
 
 📁 Project Structure
+```
 Plaintext
 ├── app/
 │   ├── [username]/     # Dynamic creator profile pages
@@ -82,6 +89,11 @@ Plaintext
 ├── models/             # Data schemas (User, Payment)
 ├── public/             # Static assets
 └── README.md
+```
+
+---
+
+
 👨‍💻 Author
 Aditya Vithalrao Thakur
 
